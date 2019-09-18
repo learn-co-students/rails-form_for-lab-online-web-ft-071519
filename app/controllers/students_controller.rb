@@ -8,6 +8,14 @@ class StudentsController < ApplicationController
       redirect_to "/students/#{@student.id}"
     end
 
+    def show
+      @student = Student.find_by_id(params["id"])
+    end
+
+    def edit
+      @student = Student.find_by_id(params["id"])
+    end
+
 
 
     private

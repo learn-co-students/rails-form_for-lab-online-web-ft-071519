@@ -46,3 +46,125 @@ Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
   [1m[35mSQL (0.6ms)[0m  DELETE FROM "students" WHERE "students"."id" = ?  [["id", 2]]
   [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
   [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClasses (20190918183206)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190918183206"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-18 18:32:29.551574"], ["updated_at", "2019-09-18 18:32:29.551574"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2019-09-18 14:46:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (4.3ms)
+Completed 200 OK in 22ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2019-09-18 14:47:03 -0400
+Processing by SchoolClassesController#new as HTML
+  Rendering school_classes/new.html.erb within layouts/application
+  Rendered school_classes/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 678ms (Views: 676.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-09-18 14:51:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 24ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students/new" for ::1 at 2019-09-18 14:51:20 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 297ms (Views: 293.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for ::1 at 2019-09-18 14:54:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NDg8vhPa/jDC4V5qFrdKTYe3QO7U1+B5ir3HNjnEmB5YDy+eP9d94s2AoNhIw9dK3vCPJ/OKAB7/t+Y5MIzkgw==", "student"=>{"first_name"=>"Nicole", "last_name"=>"Dow"}, "commit"=>"Submit Student"}
+Started GET "/school_classes/1" for ::1 at 2019-09-18 15:06:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering school_classes/show.html.erb within layouts/application
+  Rendered school_classes/show.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1> <%= @class.title %> </h1>
+  
+app/views/school_classes/show.html.erb:1:in `_app_views_school_classes_show_html_erb__4360449763727973126_70257000445040'
+  Rendering /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.1ms)
+  Rendering /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendering /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/nicoledow/.rvm/gems/ruby-2.6.4/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.3ms)
+Started GET "/school_classes/new" for ::1 at 2019-09-18 15:06:49 -0400
+Processing by SchoolClassesController#new as HTML
+  Rendering school_classes/new.html.erb within layouts/application
+  Rendered school_classes/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 254ms (Views: 251.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/school_classes" for ::1 at 2019-09-18 15:06:56 -0400
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eNQ1ItkdkVY10rDu5cEm74v/Dci69A6zy4VdSaCV7vAU4yYC9RAShDqzTly7tbvo0rjCAZ2p7tS+j3xGqd2SbQ==", "school_class"=>{"title"=>"French 1", "room_number"=>"220"}, "commit"=>"Create School class"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "school_classes" ("title", "room_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "French 1"], ["room_number", "220"], ["created_at", "2019-09-18 19:06:56.179575"], ["updated_at", "2019-09-18 19:06:56.179575"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/school_classes/1
+Completed 302 Found in 16ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/school_classes/1" for ::1 at 2019-09-18 15:06:56 -0400
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering school_classes/show.html.erb within layouts/application
+  Rendered school_classes/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/1/edit" for ::1 at 2019-09-18 15:07:00 -0400
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/school_classes/1/edit" for ::1 at 2019-09-18 15:12:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering school_classes/edit.html.erb within layouts/application
+  Rendered school_classes/edit.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 324ms (Views: 298.8ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/school_classes/1" for ::1 at 2019-09-18 15:12:16 -0400
+Processing by SchoolClassesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AhmTr+gZM5HOBvGpF9iM4ElJIMsnj43hSf9jE8zYnZpuLoCPxBSwQ8FnDxtJrBHnEA7vAgDSbYY89UIcxZDhBw==", "school_class"=>{"title"=>"French 1", "room_number"=>"69"}, "commit"=>"Update School class", "id"=>"1"}
+  [1m[36mSchoolClass Load (0.5ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "school_classes" SET "room_number" = ?, "updated_at" = ? WHERE "school_classes"."id" = ?[0m  [["room_number", "69"], ["updated_at", "2019-09-18 19:13:31.878713"], ["id", 1]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+No template found for SchoolClassesController#update, rendering head :no_content
+Completed 204 No Content in 85950ms (ActiveRecord: 3.9ms)
+
+
